@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JekKita - Layanan Transportasi Ojek Online Terpercaya, Cepat, dan Aman.">
+    <title>JekKita | Ojek Online Terpercaya</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Custom Styles & Overrides --- */
+        :root {
+            --primary-color: #00AA13; /* Hijau Ojek */
+            --secondary-color: #EE2737; /* Merah Aksen */
+            --dark-bg: #212529;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            background-color: #fff;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #555;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #00880f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 170, 19, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 60px 0;
+            background: linear-gradient(135deg, #e0f7e9 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-title {
+            font-weight: 700;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            margin-right: 15px;
+        }
+
+        .btn-cta:hover {
+            background-color: #00880f;
+            color: white;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: #e0f7e9;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .icon-box {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .service-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        /* Download App Section */
+        .download-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .store-btn {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .store-btn:hover {
+            opacity: 0.8;
+            color: white;
+        }
+
+        .store-btn i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #bbb;
+            padding: 60px 0 20px 0;
+        }
+
+        footer h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+                text-align: center;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .hero-buttons {
+                text-align: center;
+                justify-content: center;
+            }
+            .hero-img {
+                margin-top: 50px;
+                max-width: 80%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .download-section {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-bicycle-fill me-2"></i>JekKita</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#layanan">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#keunggulan">Keunggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bantuan">Bantuan</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">Masuk</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-section d-flex align-items-center min-vh-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="hero-title">Perjalanan Nyaman,<br>Harga <span style="color: var(--primary-color);">Terjangkau!</span></h1>
+                    <p class="hero-text">Solusi transportasi online terlengkap untuk mobilitas harianmu. Aman, cepat, dan terpercaya siap mengantar kamu ke mana saja.</p>
+                    <div class="hero-buttons d-flex">
+                        <button class="btn btn-cta shadow-sm">Pesan Sekarang</button>
+                        <a href="#layanan" class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold">Pelajari Lebih</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <!-- Placeholder Image: Rider/Transportation -->
+                    <img src="https://picsum.photos/seed/driverjek/600/500" alt="Ilustrasi Driver JekKita" class="hero-img img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan / Services Section -->
+    <section id="layanan" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Layanan <span>Unggulan</span> Kami</h2>
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="bi bi-bicycle"></i>
+                        </div>
+                        <h4 class="service-title">JekMotor</h4>
+                        <p class="text-muted small">Temukan jalan tercepat menembus kemacetan kota dengan motor.</p>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                        <h4 class="service-title">JekCar</h4>
+                        <p class="text-muted small">Perjalanan nyaman dan eksklusif bersama keluarga atau rekan kerja.</p>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="bi bi-basket"></i>
+                        </div>
+                        <h4 class="service-title">JekFood</h4>
+                        <p class="text-muted small">Lapar? Pesan makanan favoritmu dan kami antar cepat ke lokasi.</p>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h4 class="service-title">JekSend</h4>
+                        <p class="text-muted small">Kirim paket dan dokumen penting dengan aman dan terjamin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan / Features Section -->
+    <section id="keunggulan" class="features-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://picsum.photos/seed/scooter/600/400" alt="Fitur Aplikasi" class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="mb-4 fw-bold">Kenapa Memilih <span style
